@@ -1,8 +1,8 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "../../common/spi.c"
-#include "../../common/uart.c"
+#include "common/spi.c"
+#include "common/uart.c"
 #include "../rx/dac7554.c"
 
 
@@ -33,6 +33,8 @@ ISR(TIMER1_COMPA_vect)
 
 int main(void)
 {
+  uint8_t x;
+
   uart_setup();
 
   spi_setup_master();
@@ -42,7 +44,7 @@ int main(void)
   dac7554_setup();
 
   uart_write((uint8_t*)"press space\r\n", 13);
-  uart_read_uint8();
+  uart_read_uint8(&x);
   uart_write((uint8_t*)"starting\r\n", 10);
 
   /* sample index */

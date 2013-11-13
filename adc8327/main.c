@@ -2,7 +2,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "../tx/adc8327.c"
-#include "../../common/uart.c"
+#include "common/uart.c"
 
 
 int main(void)

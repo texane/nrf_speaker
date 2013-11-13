@@ -1,9 +1,9 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "../../common/spi.c"
-#include "../../common/nrf24l01p.c"
-#include "../../common/uart.c"
+#include "common/spi.c"
+#include "common/nrf24l01p.c"
+#include "common/uart.c"
 
 
 /* sample type */
@@ -87,6 +87,8 @@ ISR(TIMER1_COMPA_vect)
 
 int main(void)
 {
+  uint8_t x;
+
   /* setup spi first */
   spi_setup_master();
   spi_set_sck_freq(SPI_SCK_FREQ_FOSC2);
@@ -134,7 +136,7 @@ int main(void)
 
   uart_write((uint8_t*)"tx side\r\n", 9);
   uart_write((uint8_t*)"press space\r\n", 13);
-  uart_read_uint8();
+  uart_read_uint8(&x);
   uart_write((uint8_t*)"starting\r\n", 10);
 
   sample_index = 0;

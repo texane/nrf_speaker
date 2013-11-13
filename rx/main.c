@@ -1,14 +1,14 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "../../common/spi.c"
-#include "../../common/nrf24l01p.c"
+#include "common/spi.c"
+#include "common/nrf24l01p.c"
 #include "dac7554.c"
 
 
 #define CONFIG_USE_UART 0
 #if (CONFIG_USE_UART == 1)
-#include "../../common/uart.c"
+#include "common/uart.c"
 #endif
 
 

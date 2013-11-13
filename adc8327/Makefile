@@ -63,8 +63,12 @@ CC	     = avr-gcc
 
 # Override is only needed by avr-lib build system.
 
-override CFLAGS	= -g -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS) -Wno-unused-function
+NRF_DIR = $(HOME)/repo/nrf/src/atmega328p
+
+override CFLAGS	= -g -Wall $(OPTIMIZE) -mmcu=$(MCU_TARGET) $(DEFS) -Wno-unused-function -I$(NRF_DIR)
 override LDFLAGS       = -Wl,-Map,$(PRG).map
+
+CFLAGS += -I$(NRF_DIR)
 
 OBJCOPY	= avr-objcopy
 OBJDUMP	= avr-objdump
