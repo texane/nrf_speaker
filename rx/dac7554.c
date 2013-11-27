@@ -5,7 +5,7 @@
 
 #if (DAC7554_SOFTSPI == 0)
 
-#include "common/spi.c"
+#include "src/spi.c"
 #define DAC7554_SYNC_MASK (1 << 2)
 
 #else

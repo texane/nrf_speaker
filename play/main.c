@@ -1,8 +1,8 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "common/spi.c"
-#include "common/uart.c"
+#include "src/spi.c"
+#include "src/uart.c"
 #include "../rx/dac7554.c"
 
 

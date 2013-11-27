@@ -1,9 +1,9 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "common/spi.c"
-#include "common/nrf24l01p.c"
-#include "common/uart.c"
+#include "src/spi.c"
+#include "src/nrf24l01p.c"
+#include "src/uart.c"
 
 
 /* sample type */

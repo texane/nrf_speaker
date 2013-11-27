@@ -1,5 +1,5 @@
 #include <stdint.h>
-#include "common/softspi.c"
+#include "src/softspi.c"
 
 
 #define ADC8327_CS_MASK (1 << 2)

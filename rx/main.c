@@ -1,14 +1,14 @@
 #include <stdint.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "common/spi.c"
-#include "common/nrf24l01p.c"
+#include "src/spi.c"
+#include "src/nrf24l01p.c"
 #include "dac7554.c"
 
 
 #define CONFIG_USE_UART 0
 #if (CONFIG_USE_UART == 1)
-#include "common/uart.c"
+#include "src/uart.c"
 #endif
 
 
@@ -151,6 +151,10 @@ static inline void on_nrf24l01p_irq(void)
 
 int main(void)
 {
+#if (CONFIG_USE_UART == 1)
+  uint8_t x;
+#endif
+
   /* setup spi first */
   spi_setup_master();
   spi_set_sck_freq(SPI_SCK_FREQ_FOSC2);
@@ -214,7 +218,7 @@ int main(void)
 #if (CONFIG_USE_UART == 1)
   uart_write((uint8_t*)"rx side\r\n", 9);
   uart_write((uint8_t*)"press space\r\n", 13);
-  uart_read_uint8();
+  uart_read_uint8(&x);
   uart_write((uint8_t*)"starting\r\n", 10);
 #endif
 
